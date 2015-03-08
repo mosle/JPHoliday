@@ -1,5 +1,8 @@
 JPHoliday
 ====
+[![Version](https://img.shields.io/cocoapods/v/JPHoliday.svg)](http://cocoadocs.org/docsets/JPHoliday)
+[![License](https://img.shields.io/cocoapods/l/JPHoliday.svg)](http://cocoadocs.org/docsets/JPHoliday)
+[![Platform](https://img.shields.io/cocoapods/p/JPHoliday.svg)](http://cocoadocs.org/docsets/JPHoliday)
 
 Swift library to deal with holidays in Japan.
 

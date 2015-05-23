@@ -338,7 +338,7 @@ public struct JPHoliday {
     :returns: 指定年の祝祭日
     */
     public static func holidays(#year: Int) -> [Holiday] {
-        let holidays = holidayMaps.map { $0(year: year) }.filter{ $0 != nil }.map { $0! }
+        let holidays = holidayMaps.flatMap { $0(year: year).map { [$0] } ?? [] }
         return addNatinalHolidays(addSubstituteHolidays(holidays))
     }
     

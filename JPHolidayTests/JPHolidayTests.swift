@@ -22,9 +22,9 @@ class JPHolidayTests: XCTestCase {
     
     func testIsHoliday() {
         readCSV { (item) in
-            let year = (item[0]).toInt()!
-            let month = (item[1]).toInt()!
-            let day = (item[2]).toInt()!
+            let year = (item[0]).toInt() ?? 0
+            let month = (item[1]).toInt() ?? 0
+            let day = (item[2]).toInt() ?? 0
             XCTAssertTrue(JPHoliday.isHoliday(year: year, month: month, day: day), "\(year)/\(month)/\(day) is holiday")
         }
     }
@@ -32,12 +32,12 @@ class JPHolidayTests: XCTestCase {
     private func readCSV(callback: ([String]) -> Void) {
         let path = NSBundle(forClass: JPHolidayTests.self).pathForResource("holidays", ofType: "csv")!
         let text = NSString(contentsOfFile: path, encoding:NSUTF8StringEncoding, error:nil)!
-        let lines = text.componentsSeparatedByString("\n") as [NSString]
+        let lines = text.componentsSeparatedByString("\n") as! [NSString]
         for line in lines {
             if line.isEqualToString("") {
                 continue
             }
-            let i = line.componentsSeparatedByString(",") as [String]
+            let i = line.componentsSeparatedByString(",") as! [String]
             callback(i)
         }
     }

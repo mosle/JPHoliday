@@ -245,7 +245,7 @@ private struct Date {
     指定日数後の日付を取得する
     */
     private func dateByAddingDays(days: Int) -> Date {
-        let cal = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
+        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         cal.locale = NSLocale(localeIdentifier: "en_US")
 
         let c1 = NSDateComponents()
@@ -254,7 +254,7 @@ private struct Date {
         c1.day = self.day
         let date = cal.dateFromComponents(c1)!.dateByAddingTimeInterval(NSTimeInterval(days) * 24 * 60 * 60)
         
-        let c2 = cal.components(NSCalendarUnit.YearCalendarUnit|NSCalendarUnit.MonthCalendarUnit|NSCalendarUnit.DayCalendarUnit, fromDate: date)
+        let c2 = cal.components(NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay, fromDate: date)
         return Date(year: c2.year, month: c2.month, day: c2.day)
     }
     
@@ -312,7 +312,7 @@ private func addNatinalHolidays(orignalHolidays: [Holiday]) -> [Holiday] {
 指定の年月日の曜日を取得する
 */
 private func calcWeekday(#year: Int, #month: Int, #day: Int) -> Int {
-    let cal = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
+    let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     cal.locale = NSLocale(localeIdentifier: "en_US")
     
     let comp = NSDateComponents()
@@ -321,7 +321,7 @@ private func calcWeekday(#year: Int, #month: Int, #day: Int) -> Int {
     comp.day = day
     
     let date = cal.dateFromComponents(comp)!
-    return cal.components(NSCalendarUnit.WeekdayCalendarUnit, fromDate: date).weekday
+    return cal.components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
 }
 
 // MARK: -

@@ -12,6 +12,10 @@
 		235879071AAB36D3001FFFE2 /* JPHolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235879061AAB36D3001FFFE2 /* JPHolidayTests.swift */; };
 		235879111AAB372C001FFFE2 /* JPHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235879101AAB372C001FFFE2 /* JPHoliday.swift */; };
 		235879131AAB37F2001FFFE2 /* holidays.csv in Resources */ = {isa = PBXBuildFile; fileRef = 235879121AAB37F2001FFFE2 /* holidays.csv */; };
+		AB015FA21BCBC24D0017BF1F /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA11BCBC24D0017BF1F /* Holiday.swift */; settings = {ASSET_TAGS = (); }; };
+		AB015FA41BCBC2EF0017BF1F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA31BCBC2EF0017BF1F /* Date.swift */; settings = {ASSET_TAGS = (); }; };
+		AB015FA61BCBC3EF0017BF1F /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA51BCBC3EF0017BF1F /* DateUtil.swift */; settings = {ASSET_TAGS = (); }; };
+		AB015FA81BCBC5CB0017BF1F /* HolidayMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA71BCBC5CB0017BF1F /* HolidayMaps.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +37,10 @@
 		235879061AAB36D3001FFFE2 /* JPHolidayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPHolidayTests.swift; sourceTree = "<group>"; };
 		235879101AAB372C001FFFE2 /* JPHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPHoliday.swift; sourceTree = "<group>"; };
 		235879121AAB37F2001FFFE2 /* holidays.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = holidays.csv; sourceTree = "<group>"; };
+		AB015FA11BCBC24D0017BF1F /* Holiday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
+		AB015FA31BCBC2EF0017BF1F /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		AB015FA51BCBC3EF0017BF1F /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		AB015FA71BCBC5CB0017BF1F /* HolidayMaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayMaps.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,10 @@
 			children = (
 				235878F91AAB36D3001FFFE2 /* JPHoliday.h */,
 				235879101AAB372C001FFFE2 /* JPHoliday.swift */,
+				AB015FA71BCBC5CB0017BF1F /* HolidayMaps.swift */,
+				AB015FA11BCBC24D0017BF1F /* Holiday.swift */,
+				AB015FA51BCBC3EF0017BF1F /* DateUtil.swift */,
+				AB015FA31BCBC2EF0017BF1F /* Date.swift */,
 				235878F71AAB36D3001FFFE2 /* Supporting Files */,
 			);
 			path = JPHoliday;
@@ -164,7 +176,9 @@
 		235878EB1AAB36D3001FFFE2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = mako2x;
 				TargetAttributes = {
 					235878F31AAB36D3001FFFE2 = {
@@ -216,6 +230,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB015FA61BCBC3EF0017BF1F /* DateUtil.swift in Sources */,
+				AB015FA21BCBC24D0017BF1F /* Holiday.swift in Sources */,
+				AB015FA41BCBC2EF0017BF1F /* Date.swift in Sources */,
+				AB015FA81BCBC5CB0017BF1F /* HolidayMaps.swift in Sources */,
 				235879111AAB372C001FFFE2 /* JPHoliday.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +278,8 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -307,6 +327,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -335,6 +356,7 @@
 				INFOPLIST_FILE = JPHoliday/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.makox.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -352,6 +374,7 @@
 				INFOPLIST_FILE = JPHoliday/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.makox.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -360,16 +383,14 @@
 		2358790E1AAB36D3001FFFE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = JPHolidayTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.makox.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -377,12 +398,10 @@
 		2358790F1AAB36D3001FFFE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = JPHolidayTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.makox.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

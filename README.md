@@ -13,14 +13,14 @@ Swift library to deal with holidays in Japan.
 JPHoliday.isHoliday(year: 2016, month: 8, day: 11)
 
 for holiday in JPHoliday.holidays(year: 2015) {
-  println(holiday.name)
+  print(holiday.name)
 }
 ```
 
 ## Requirement
 
  - iOS 8.0 or later (by Carthage or Cocoapods) / iOS 7 (by manually)
- - Xcode 6.3 or later
+ - Xcode 7.0 or later
 
 ## Install
 

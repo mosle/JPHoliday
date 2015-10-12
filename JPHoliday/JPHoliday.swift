@@ -44,7 +44,7 @@ public struct Holiday {
     }
 }
 
-extension Holiday: Printable, DebugPrintable {
+extension Holiday: CustomStringConvertible, CustomDebugStringConvertible {
     public var description: String {
         return "\(self.year)/\(self.month)/\(self.day) \(self.name)"
     }
@@ -114,7 +114,7 @@ private let holidayMaps: [HolidayMap] = [
 /**
 日指定の祝祭日
 */
-private func holidayMap(#name: String, #month: Int, #day: Int, #yearInterval: ClosedInterval<Int>) -> HolidayMap {
+private func holidayMap(name name: String, month: Int, day: Int, yearInterval: ClosedInterval<Int>) -> HolidayMap {
     return { year in
         if yearInterval.contains(year) {
             return Holiday(name: name, year: year, month: month, day: day)
@@ -126,7 +126,7 @@ private func holidayMap(#name: String, #month: Int, #day: Int, #yearInterval: Cl
 /**
 ハッピーマンデー
 */
-private func happyMondayMap(#name: String, #month: Int, #week: Int, #yearInterval: ClosedInterval<Int>) -> HolidayMap {
+private func happyMondayMap(name name: String, month: Int, week: Int, yearInterval: ClosedInterval<Int>) -> HolidayMap {
     return { year in
         if !yearInterval.contains(year) {
             return nil
@@ -141,13 +141,13 @@ private func happyMondayMap(#name: String, #month: Int, #week: Int, #yearInterva
 /**
 春分の日
 */
-private func vernalEquinoxHolidayMap(#name: String, #month: Int, #yearInterval: ClosedInterval<Int>) -> HolidayMap {
+private func vernalEquinoxHolidayMap(name name: String, month: Int, yearInterval: ClosedInterval<Int>) -> HolidayMap {
     return { year in
         if !yearInterval.contains(year) {
             return nil
         }
         
-        var surplus = year % 4
+        let surplus = year % 4
         var day: Int
         switch year {
         case 1800...1827:
@@ -188,13 +188,13 @@ private func vernalEquinoxHolidayMap(#name: String, #month: Int, #yearInterval: 
 /**
 秋分の日
 */
-private func autumnalEquinoxHolidayMap(#name: String, #month: Int, #yearInterval: ClosedInterval<Int>) -> HolidayMap {
+private func autumnalEquinoxHolidayMap(name name: String, month: Int, yearInterval: ClosedInterval<Int>) -> HolidayMap {
     return { year in
         if !yearInterval.contains(year) {
             return nil
         }
         
-        var surplus = year % 4
+        let surplus = year % 4
         var day: Int
         switch year {
         case 1800...1823:
@@ -254,7 +254,7 @@ private struct Date {
         c1.day = self.day
         let date = cal.dateFromComponents(c1)!.dateByAddingTimeInterval(NSTimeInterval(days) * 24 * 60 * 60)
         
-        let c2 = cal.components(NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay, fromDate: date)
+        let c2 = cal.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: date)
         return Date(year: c2.year, month: c2.month, day: c2.day)
     }
     
@@ -311,7 +311,7 @@ private func addNatinalHolidays(orignalHolidays: [Holiday]) -> [Holiday] {
 /**
 指定の年月日の曜日を取得する
 */
-private func calcWeekday(#year: Int, #month: Int, #day: Int) -> Int {
+private func calcWeekday(year year: Int, month: Int, day: Int) -> Int {
     let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     cal.locale = NSLocale(localeIdentifier: "en_US")
     
@@ -321,7 +321,7 @@ private func calcWeekday(#year: Int, #month: Int, #day: Int) -> Int {
     comp.day = day
     
     let date = cal.dateFromComponents(comp)!
-    return cal.components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
+    return cal.components(NSCalendarUnit.Weekday, fromDate: date).weekday
 }
 
 // MARK: -
@@ -333,11 +333,11 @@ public struct JPHoliday {
     /**
     指定年の祝祭日を取得する
     
-    :param: year 指定年
+    - parameter year: 指定年
     
-    :returns: 指定年の祝祭日
+    - returns: 指定年の祝祭日
     */
-    public static func holidays(#year: Int) -> [Holiday] {
+    public static func holidays(year year: Int) -> [Holiday] {
         let holidays = holidayMaps.flatMap { $0(year: year).map { [$0] } ?? [] }
         return addNatinalHolidays(addSubstituteHolidays(holidays))
     }
@@ -345,13 +345,13 @@ public struct JPHoliday {
     /**
     指定年月日が祝祭日かどうか取得する
     
-    :param: year  年
-    :param: month 月
-    :param: day   日
+    - parameter year:  年
+    - parameter month: 月
+    - parameter day:   日
     
-    :returns: 指定年月日が祝祭日かどうか
+    - returns: 指定年月日が祝祭日かどうか
     */
-    public static func isHoliday(#year: Int, month: Int, day: Int) -> Bool {
+    public static func isHoliday(year year: Int, month: Int, day: Int) -> Bool {
         for h in holidays(year: year) {
             if h.month == month && h.day == day {
                 return true

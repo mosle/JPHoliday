@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias HolidayMapping = (year: Int) -> Holiday?
+typealias HolidayMapping = (_ year: Int) -> Holiday?
 
 /// 祝祭日のマッピング
 let HolidayMaps: [HolidayMapping] = [
@@ -67,7 +67,7 @@ let HolidayMaps: [HolidayMapping] = [
 /**
 日指定の祝祭日
 */
-private func holidayMap(name name: String, month: Int, day: Int, yearInterval: ClosedInterval<Int>) -> HolidayMapping {
+private func holidayMap(name: String, month: Int, day: Int, yearInterval: ClosedRange<Int>) -> HolidayMapping {
     return { year in
         if yearInterval.contains(year) {
             return Holiday(name: name, year: year, month: month, day: day)
@@ -79,7 +79,7 @@ private func holidayMap(name name: String, month: Int, day: Int, yearInterval: C
 /**
 ハッピーマンデー
 */
-private func happyMondayMap(name name: String, month: Int, week: Int, yearInterval: ClosedInterval<Int>) -> HolidayMapping {
+private func happyMondayMap(name: String, month: Int, week: Int, yearInterval: ClosedRange<Int>) -> HolidayMapping {
     return { year in
         if !yearInterval.contains(year) {
             return nil
@@ -94,7 +94,7 @@ private func happyMondayMap(name name: String, month: Int, week: Int, yearInterv
 /**
 春分の日
 */
-private func vernalEquinoxHolidayMap(name name: String, month: Int, yearInterval: ClosedInterval<Int>) -> HolidayMapping {
+private func vernalEquinoxHolidayMap(name: String, month: Int, yearInterval: ClosedRange<Int>) -> HolidayMapping {
     return { year in
         if !yearInterval.contains(year) {
             return nil
@@ -141,7 +141,7 @@ private func vernalEquinoxHolidayMap(name name: String, month: Int, yearInterval
 /**
 秋分の日
 */
-private func autumnalEquinoxHolidayMap(name name: String, month: Int, yearInterval: ClosedInterval<Int>) -> HolidayMapping {
+private func autumnalEquinoxHolidayMap(name: String, month: Int, yearInterval: ClosedRange<Int>) -> HolidayMapping {
     return { year in
         if !yearInterval.contains(year) {
             return nil

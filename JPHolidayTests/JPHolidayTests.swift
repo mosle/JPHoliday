@@ -20,15 +20,15 @@ class JPHolidayTests: XCTestCase {
         }
     }
     
-    private func readCSV(callback: ([String]) -> Void) {
-        let path = NSBundle(forClass: JPHolidayTests.self).pathForResource("holidays", ofType: "csv")!
-        let text = try! NSString(contentsOfFile: path, encoding:NSUTF8StringEncoding)
-        let lines = text.componentsSeparatedByString("\n")
+    fileprivate func readCSV(_ callback: ([String]) -> Void) {
+        let path = Bundle(for: JPHolidayTests.self).path(forResource: "holidays", ofType: "csv")!
+        let text = try! NSString(contentsOfFile: path, encoding:String.Encoding.utf8.rawValue)
+        let lines = text.components(separatedBy: "\n")
         for line in lines {
             if line.isEmpty {
                 continue
             }
-            let i = line.componentsSeparatedByString(",")
+            let i = line.components(separatedBy: ",")
             callback(i)
         }
     }

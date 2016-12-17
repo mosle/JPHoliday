@@ -31,9 +31,9 @@ public struct Holiday {
         }
     }
     
-    public var dateComponent: NSDateComponents {
+    public var dateComponent: DateComponents {
         get {
-            let comp = NSDateComponents()
+            var comp = DateComponents()
             comp.era = 1
             comp.year = year
             comp.month = month

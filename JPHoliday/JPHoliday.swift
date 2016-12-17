@@ -19,8 +19,8 @@ public struct JPHoliday {
     
     - returns: 指定年の祝祭日
     */
-    public static func holidays(year year: Int) -> [Holiday] {
-        let holidays = HolidayMaps.flatMap { $0(year: year).map { [$0] } ?? [] }
+    public static func holidays(year: Int) -> [Holiday] {
+        let holidays = HolidayMaps.flatMap { $0(year).map { [$0] } ?? [] }
         return DateUtil.addNationalAndSubstituteHolidays(holidays)
     }
     
@@ -33,7 +33,7 @@ public struct JPHoliday {
     
     - returns: 指定年月日が祝祭日かどうか
     */
-    public static func isHoliday(year year: Int, month: Int, day: Int) -> Bool {
+    public static func isHoliday(year: Int, month: Int, day: Int) -> Bool {
         for h in holidays(year: year) {
             if h.month == month && h.day == day {
                 return true

@@ -12,10 +12,10 @@
 		235879071AAB36D3001FFFE2 /* JPHolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235879061AAB36D3001FFFE2 /* JPHolidayTests.swift */; };
 		235879111AAB372C001FFFE2 /* JPHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235879101AAB372C001FFFE2 /* JPHoliday.swift */; };
 		235879131AAB37F2001FFFE2 /* holidays.csv in Resources */ = {isa = PBXBuildFile; fileRef = 235879121AAB37F2001FFFE2 /* holidays.csv */; };
-		AB015FA21BCBC24D0017BF1F /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA11BCBC24D0017BF1F /* Holiday.swift */; settings = {ASSET_TAGS = (); }; };
-		AB015FA41BCBC2EF0017BF1F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA31BCBC2EF0017BF1F /* Date.swift */; settings = {ASSET_TAGS = (); }; };
-		AB015FA61BCBC3EF0017BF1F /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA51BCBC3EF0017BF1F /* DateUtil.swift */; settings = {ASSET_TAGS = (); }; };
-		AB015FA81BCBC5CB0017BF1F /* HolidayMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA71BCBC5CB0017BF1F /* HolidayMaps.swift */; settings = {ASSET_TAGS = (); }; };
+		AB015FA21BCBC24D0017BF1F /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA11BCBC24D0017BF1F /* Holiday.swift */; };
+		AB015FA41BCBC2EF0017BF1F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA31BCBC2EF0017BF1F /* Date.swift */; };
+		AB015FA61BCBC3EF0017BF1F /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA51BCBC3EF0017BF1F /* DateUtil.swift */; };
+		AB015FA81BCBC5CB0017BF1F /* HolidayMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB015FA71BCBC5CB0017BF1F /* HolidayMaps.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,9 +183,11 @@
 				TargetAttributes = {
 					235878F31AAB36D3001FFFE2 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0820;
 					};
 					235878FE1AAB36D3001FFFE2 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -360,6 +362,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -377,6 +380,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.makox.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -392,6 +396,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.makox.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -403,6 +408,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.makox.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

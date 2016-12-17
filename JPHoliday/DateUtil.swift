@@ -21,17 +21,17 @@ struct DateUtil {
     
     - returns: 曜日
     */
-    static func calcWeekday(year year: Int, month: Int, day: Int) -> Int {
-        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        cal.locale = NSLocale(localeIdentifier: "en_US")
+    static func calcWeekday(year: Int, month: Int, day: Int) -> Int {
+        var cal = Calendar(identifier: Calendar.Identifier.gregorian)
+        cal.locale = Locale(identifier: "en_US")
         
-        let comp = NSDateComponents()
+        var comp = DateComponents()
         comp.year = year
         comp.month = month
         comp.day = day
         
-        let date = cal.dateFromComponents(comp)!
-        return cal.components(NSCalendarUnit.Weekday, fromDate: date).weekday
+        let date = cal.date(from: comp)!
+        return (cal as NSCalendar).components(NSCalendar.Unit.weekday, from: date).weekday!
     }
     
     /**
@@ -41,7 +41,7 @@ struct DateUtil {
     
     - returns: 追加後の休日の配列
     */
-    static func addNationalAndSubstituteHolidays(orignalHolidays: [Holiday]) -> [Holiday] {
+    static func addNationalAndSubstituteHolidays(_ orignalHolidays: [Holiday]) -> [Holiday] {
         return addNatinalHolidays(addSubstituteHolidays(orignalHolidays))
     }
     
@@ -52,7 +52,7 @@ struct DateUtil {
     
     - returns: 追加後の休日の配列
     */
-    private static func addNatinalHolidays(orignalHolidays: [Holiday]) -> [Holiday] {
+    fileprivate static func addNatinalHolidays(_ orignalHolidays: [Holiday]) -> [Holiday] {
         var holidays = [Holiday]()
         for h in orignalHolidays {
             let d = Date(year: h.year, month: h.month, day: h.day)
@@ -75,7 +75,7 @@ struct DateUtil {
     
     - returns: 追加後の休日の配列
     */
-    private static func addSubstituteHolidays(orignalHolidays: [Holiday]) -> [Holiday] {
+    fileprivate static func addSubstituteHolidays(_ orignalHolidays: [Holiday]) -> [Holiday] {
         var holidays = [Holiday]()
         for h in orignalHolidays {
             holidays.append(h)

@@ -24,24 +24,24 @@ struct Date {
     /**
     指定日数後の日付を取得する
     */
-    func dateByAddingDays(days: Int) -> Date {
-        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        cal.locale = NSLocale(localeIdentifier: "en_US")
+    func dateByAddingDays(_ days: Int) -> Date {
+        var cal = Calendar(identifier: Calendar.Identifier.gregorian)
+        cal.locale = Locale(identifier: "en_US")
 
-        let c1 = NSDateComponents()
+        var c1 = DateComponents()
         c1.year = self.year
         c1.month = self.month
         c1.day = self.day
-        let date = cal.dateFromComponents(c1)!.dateByAddingTimeInterval(NSTimeInterval(days) * 24 * 60 * 60)
+        let date = cal.date(from: c1)!.addingTimeInterval(TimeInterval(days) * 24 * 60 * 60)
         
-        let c2 = cal.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: date)
-        return Date(year: c2.year, month: c2.month, day: c2.day)
+        let c2 = (cal as NSCalendar).components([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day], from: date)
+        return Date(year: c2.year!, month: c2.month!, day: c2.day!)
     }
     
     /**
     祝祭日に同じ日があるか
     */
-    func isContainedInHolidays(holidays: [Holiday]) -> Bool {
+    func isContainedInHolidays(_ holidays: [Holiday]) -> Bool {
         return !(holidays.filter { self.month == $0.month && self.day == $0.day }).isEmpty
     }
 }
